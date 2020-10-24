@@ -11,11 +11,11 @@ The code is useful when reading text in foregin languages. It gives an overview 
 ## Example:
 
 ### Input
-Le Soleil
-Le long du vieux faubourg, où pendent aux masures
-Les persiennes, abri des secrètes luxures,
-...
-Dans tous les hôpitaux et dans tous les palais.
+Le Soleil  
+Le long du vieux faubourg, où pendent aux masures  
+Les persiennes, abri des secrètes luxures,  
+...  
+Dans tous les hôpitaux et dans tous les palais.  
 
 ```markdown
 #enter title of file
@@ -30,18 +30,18 @@ output_file = 'C:\\Users\\PC-Name\Desktop\\'
 builder = Vocab_builder(input_file)
 builder.run(output_file)
 
----
+```
 ### Output
 
-Word | Frequency
------------- | -------------
-les | 20
-et | 11
-le | 6
-... | ...
-valets | 1
-hôpitaux | 1
-palais | 1
+|Word | Frequency|
+|------------ | -------------|
+|les | 20|
+|et | 11|
+|le | 6|
+|... | ...|
+|valets | 1|
+|hôpitaux | 1|
+|palais | 1|
 
 
 
