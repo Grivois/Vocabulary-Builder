@@ -11,7 +11,7 @@ The code is useful when reading text in foregin languages. It gives an overview 
 ## Example:
 
 ### Input
-> #### Le Soleil  
+> # Le Soleil  
 > Le long du vieux faubourg, où pendent aux masures  
 > Les persiennes, abri des secrètes luxures,  
 > ...  
