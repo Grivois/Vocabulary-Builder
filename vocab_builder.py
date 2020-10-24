@@ -74,6 +74,8 @@ class Vocab_builder():
             word_count.append(snumber)  
             words.append(sword)
         words[0] = words[0].replace('Counter', '')  
+        words[:0] = ['Words'] 
+        word_count[:0] = ['Frequency']
         with open(save_location + self.title + 'vocab list.CSV', 'w', encoding='utf-8') as w:
            for word,number in zip(words,word_count):
                w.write(word + ',' + number + '\n')  
