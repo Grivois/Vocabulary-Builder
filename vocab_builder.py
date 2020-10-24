@@ -26,20 +26,23 @@ class Vocab_builder():
          filename = self.split('/')
          filetitle = filename[-1].split('.')
          return filetitle[0]
-
+   
     def txt(self):
-        text = ''
-        with open(self.file, 'r') as f:
+        # text = ''
+        with open(self.file, 'r', encoding='utf-8') as f:
             for line in f:
                 for character in line:
-                    text += (character.lower())
+                    self.text += (character.lower())
             f.close()
-        return text
+        return self.text
         
     def pdf(self):
+    
         pdfReader = PyPDF2.PdfFileReader(self.file)
+
         num_pages = pdfReader.numPages
         count = 0
+        
         while count < num_pages:
             pageObj = pdfReader.getPage(count)
             count +=1
@@ -49,7 +52,7 @@ class Vocab_builder():
     def vocab_extractor(self):
         words_in_book = self.text.split()
         removetable = str.maketrans('', '', '@#%\'\"?.,!;')
-        words_in_book = [s.translate(removetable) for s in words_in_book]        
+        words_in_book = [s.translate(removetable) for s in words_in_book]       
         x = str(Counter(words_in_book))
         self.vocab = x.split(',')
         return self.vocab   
@@ -70,7 +73,7 @@ class Vocab_builder():
             sword = ''.join([str(elem) for elem in word])
             word_count.append(snumber)  
             words.append(sword)
-            
+        words[0] = words[0].replace('Counter', '')  
         with open(save_location + self.title + 'vocab list.CSV', 'w', encoding='utf-8') as w:
            for word,number in zip(words,word_count):
                w.write(word + ',' + number + '\n')  
@@ -90,7 +93,7 @@ class Vocab_builder():
             print('The Vocabulary List is at: ' + save_location + '\\' + self.title +'.CSV')
         else:
             print('Invalid file') 
-        
-#to initiate:        
+
+            
 builder = Vocab_builder(input_file)
 builder.run(output_file)
